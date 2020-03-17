@@ -34,9 +34,9 @@
 /* ----------------------------------------------------------------------- */
 /* includes */
 
-#include <stdio.h> /* Standard I/O functions */
-#include <math.h>  /* Mathematics functions */
-#include <allegro.h> /* Biblioteca para animacao grafica em C */
+#include <stdio.h>      /* Standard I/O functions */
+#include <math.h>       /* Mathematics functions */
+#include <allegro.h>    /* Biblioteca para animacao grafica em C */
 
 /* ---------------------------------------------------------------------- */
 /* definitions */
@@ -45,10 +45,10 @@
 
 /* ---------------------------------------------------------------------- */
 /* Esta funcao simula o movimento de 10 pendulos duplos independentes, 
- * mostrando duas trajetorias numa abordagem caotica, a partir de animacoes
+ * mostrando suas trajetorias numa abordagem caotica, a partir de animacoes
  * graficas utilizando a biblioteca <allegro.h>.
  * 
- * Ela recebe argumentos (normalmente inteiros) para definicao de formas,
+ * Ela recebe argumentos (normalmente inteiros e floats) para definicao de formas,
  * cores, posicoes e argumentos de funcoes matematicas.
  *
  * E retorna EXIT_SUCCESS. */
@@ -113,8 +113,8 @@ int main(void)
         circlefill(buffer, x2, y2, m2, makecol(255, 0, 150));
 
         draw_sprite(screen, buffer, 0, 0);
-        rest(50); /* controla a velocidade de execução */
-        clear(buffer); /* Limpando o buffer */
+        rest(50);       /* controla a velocidade de execução */
+        clear(buffer);  /* Limpando o buffer */
     }
     destroy_bitmap(buffer);
 
