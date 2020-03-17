@@ -79,16 +79,16 @@ int main(void)
         float part1 = -g*(2*m1 + m2)*sin(fi1);
         float part2 = -m2*g*sin(fi1 - (2*fi2));
         float part3 = -2*sin(fi1 - fi2)*m2;
-        float part4 = (fi2_v)*(fi2_v)*fio2 + (fi1_v)*fio1*cos(fi1 - fi2);
+        float part4 = fi2_v*fi2_v*fio2 + fi1_v*fio1*cos(fi1 - fi2);
         float denom = fio1*(2*m1 + m2 - m2*cos(2*fi1 - 2*fi2));
         float fi1_a = (part1 + part2 + part3*part4)/denom;
 
         float part1_2 = 2*sin(fi1 - fi2);
-        float part2_2 = ((fi1_v)*(fi1_v)*fio1*(m1 + m2));
+        float part2_2 = (fi1_v*fi1_v*fio1*(m1 + m2));
         float part3_2 = g*(m1 + m2)*cos(fi1);
-        float part4_2 = (fi2_v)*(fi2_v)*fio2*m2*cos(fi1 - fi2);
+        float part4_2 = fi2_v*fi2_v*fio2*m2*cos(fi1 - fi2);
         float denom_2 = fio2*(2*m2 + m2 - m2*cos(2*fi1 - 2*fi2));
-        float fi2_a = ((part1_2)*((part2_2) + (part3_2) + (part4_2)))/denom_2;
+        float fi2_a = (part1_2*(part2_2 + part3_2 + part4_2))/denom_2;
 
         /* Posições dos pêndulos */
         float x1 = x0 + fio1*sin(fi1);
@@ -99,7 +99,7 @@ int main(void)
         
         /* Velocidades e Acelerações dos pêndulos */
         fi1_v += fi1_a/4;
-        fi1_v += fi2_a/4;
+        fi2_v += fi2_a/4;
 
         fi1 += fi1_v;
         fi2 += fi2_v;
