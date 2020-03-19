@@ -64,6 +64,7 @@ int main(void)
     set_gfx_mode(GFX_AUTODETECT_WINDOWED, 800, 600, 0, 0);
 
     BITMAP *buffer = create_bitmap(800, 600);
+    BITMAP *buffer1 = create_bitmap(800, 600);
 
     float fio1 = 100, fio2 = 100;       /* Comprimentos dos pêndulos */
     float m1 = 4, m2 = 4;               /* Massas dos pêndulos */
@@ -112,11 +113,20 @@ int main(void)
         circlefill(buffer, x1, y1, m1, makecol(0, 255, 255));
         circlefill(buffer, x2, y2, m2, makecol(255, 0, 150));
 
+        /* Rastros das bolas */
+        circlefill(buffer1, x1, y1, 0, makecol(0, 255, 255));
+        circlefill(buffer1, x2, y2, 0, makecol(255, 0, 150));
+        
+        
         draw_sprite(screen, buffer, 0, 0);
         rest(50);       /* controla a velocidade de execução */
         clear(buffer);  /* Limpando o buffer */
+        
+        draw_sprite(screen, buffer1, 0, 0);
+        rest(50);       /* controla a velocidade de execução */
     }
     destroy_bitmap(buffer);
+    destroy_bitmap(buffer1);
 
     return EXIT_SUCCESS;
 }
